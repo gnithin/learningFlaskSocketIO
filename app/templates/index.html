@@ -6,7 +6,7 @@
         <link href="" />
     </head>
     <body>
-        <textarea placeholder="Type something here">
+        <textarea id="msg" placeholder="Type something here">
         </textarea>
         <button id="send-msg">
             Send
@@ -18,19 +18,31 @@
 
         </div>
         <!-- JS Scripts -->
-        <!-- Socket io -->
         <!-- Jquery -->
+        <script src="https://code.jquery.com/jquery-git2.min.js"></script>
+        <!-- Socket io -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.6/socket.io.min.js"></script>
+
+        <!-- Logic -->
         <script>
             function log(s){console.log(s);}
-            $(document).ready(function(){
+            $(document).ready(main);
+
+            function main(){
+                $conn_str = "http://" + document.domain + ":" + document.port;
+
+                var socket = io.connect($conn_str);
+                /*
+
                 $("#send-msg").bind("click", function(){
                     log("Click!");
-                    //Do something here.
+                    socket.emit("event", $("#msg").text());
                 });
+                */
 
                 //This is on receive
                 $("#received").text($received_text);
-            });
+            }
         </script>
 
     </body>

@@ -4,14 +4,23 @@ from flask.ext.socketio import SocketIO, emit
 app = Flask(__name__)
 socketio = SocketIO(app)
 
-@app.route("/")
+@app.route("/chat")
 def index():
     return render_template("index.html")
 
-@socketio.on("message")
-def handle_message(message):
-    print "Received message - " + message
-    send("We received - `" + message + "`")
+
+@socketio.on("event")
+def test_connect():
+    pass
+
+@socketio.on_error("event")
+def error_event(e):
+    pass
+
+@socketio.on_error_default
+def default_err_handler(e):
+    pass
 
 if __name__ == "__main__":
-    socketio.run(app)
+    socketio.run(app, host="0.0.0.0")
+    print "asas"
