@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> My Chat app </title>
+        <!-- Bootstrap -->
+        <link href="" />
+    </head>
+    <body>
+        <textarea placeholder="Type something here">
+        </textarea>
+        <button id="send-msg">
+            Send
+        </button>
+        <div>
+            I received - <br />
+            <div id="received">
+            </div>
+
+        </div>
+        <!-- JS Scripts -->
+        <!-- Socket io -->
+        <!-- Jquery -->
+        <script>
+            function log(s){console.log(s);}
+            $(document).ready(function(){
+                $("#send-msg").bind("click", function(){
+                    log("Click!");
+                    //Do something here.
+                });
+
+                //This is on receive
+                $("#received").text($received_text);
+            });
+        </script>
+
+    </body>
+</html>
