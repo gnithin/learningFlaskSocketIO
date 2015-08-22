@@ -7,4 +7,5 @@ Trying out a basic socket-io based app using flask.
 * http://blog.miguelgrinberg.com/post/easy-websockets-with-flask-and-gevent
 
 ### Troubleshooting 
-* During `pip install flask-socketio`, there is an error that pops up - `import error. Error importing 'Python.h'`. This can be solved by installing the python-dev package - `apt-get install python-dev`(It's about 50MB)
+* During `pip install flask-socketio`, there is an error that pops up - `import error. Error importing 'Python.h'`. This can be solved by installing the python-dev package - `apt-get install python-dev`(It's about 50MB).
+* Requires latest JQuery and SocketIO CDNs.(It works with this, but gives an error - 'CLosed Null')
