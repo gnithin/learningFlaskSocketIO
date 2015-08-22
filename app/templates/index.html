@@ -19,29 +19,33 @@
         </div>
         <!-- JS Scripts -->
         <!-- Jquery -->
-        <script src="https://code.jquery.com/jquery-git2.min.js"></script>
-        <!-- Socket io -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.6/socket.io.min.js"></script>
-
         <!-- Logic -->
-        <script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.js"></script>
+    <script>
             function log(s){console.log(s);}
             $(document).ready(main);
 
             function main(){
-                $conn_str = "http://" + document.domain + ":" + document.port;
+                namespace="/test";
+                $conn_str = "http://" + document.domain + ":" + location.port + namespace;
+                log($conn_str);
 
                 var socket = io.connect($conn_str);
-                /*
+                log('Connected!');
+
+                log("Again");
+                socket.on("connect", function(){
+                    log("tr");
+                    socket.emit("event", "Earth calling mars...");
+                });
 
                 $("#send-msg").bind("click", function(){
-                    log("Click!");
-                    socket.emit("event", $("#msg").text());
+                    log("Sending...");
+                    socket.emit("event", $("#msg").val());
                 });
-                */
 
-                //This is on receive
-                $("#received").text($received_text);
+                //socket.on("event", function(msg){log(msg);});
             }
         </script>
 
